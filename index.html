@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dawa Duniya - Feedback</title>    
+    <link rel="stylesheet" href="style.css">   
+</head>
+<body>
+
+<div class="feedback-card">
+    <div class="logo-container">
+        <img src="Dawa Duniya Round Logo.png" alt="Dawa Duniya Logo" class="main-logo">
+    </div>
+
+    <h2>Aapka Experience kaisa raha?</h2>
+    <p class="sub-text">Hamari sevaon ko behtar banane mein madad karein.</p>
+
+    <div class="star-rating">
+        <input type="radio" id="s5" name="r" value="5" onclick="handle(5)"><label for="s5">★</label>
+        <input type="radio" id="s4" name="r" value="4" onclick="handle(4)"><label for="s4">★</label>
+        <input type="radio" id="s3" name="r" value="3" onclick="handle(3)"><label for="s3">★</label>
+        <input type="radio" id="s2" name="r" value="2" onclick="handle(2)"><label for="s2">★</label>
+        <input type="radio" id="s1" name="r" value="1" onclick="handle(1)"><label for="s1">★</label>
+    </div>
+
+    <div id="dynamic-message" class="msg-box"></div>
+
+    <div class="btn-wrapper">
+        <a href="YOUR_GOOGLE_MAPS_URL" id="g-link" class="btn btn-google">Review on Google Maps</a>
+        <a href="#" id="w-link" class="btn btn-whatsapp">Click to Chat</a>
+    </div>
+
+    <div id="timing-info" class="info-grid" style="display: none;">
+        <div class="info-item">
+            <b>Service Timing</b>
+            <span>9 AM - 6 PM</span>
+        </div>
+        <div class="info-item">
+            <b>Response Time</b>
+            <span>Within 30 Mins</span>
+        </div>
+        <div class="resolution-bar">
+            Resolution Time: <b>24-48 Hours</b>
+        </div>
+    </div>
+
+    <span class="tnc">*Terms & Conditions Apply</span>
+</div>
+
+<script>
+    function handle(val) {
+        const gBtn = document.getElementById('g-link');
+        const wBtn = document.getElementById('w-link');
+        const msgBox = document.getElementById('dynamic-message');
+        const timingInfo = document.getElementById('timing-info');
+        const phone = "919354227521"; 
+        
+        if (val >= 4) {
+            // 4-5 Star Logic
+            msgBox.innerHTML = `
+                <div class="appreciation-text">
+                    Hume khushi hai ki aapko hamari service pasand aayi! 😍<br>
+                    <span>Kripya Google Maps par rating dein taaki baaki log bhi <b>Dawa Duniya</b> se jud sakein.</span>
+                </div>`;
+            
+            gBtn.style.display = 'block';
+            wBtn.style.display = 'none';
+            timingInfo.style.display = 'none'; // Happy user ko timing nahi dikhegi
+        } else {
+            // 1-3 Star Logic
+            msgBox.innerHTML = `
+                <div class="grievance-text">
+                    Hume khed hai ki aapka experience sahi nahi raha. 😔<br>
+                    <span>Aap niche WhatsApp par private feedback de sakte hain.</span>
+                </div>`;
+            
+            const msg = encodeURIComponent(`Hi Dawa Duniya Team, I want to share my feedback (Rating: ${val}/5). Please check.`);
+            wBtn.href = `https://wa.me/${phone}?text=${msg}`;
+            wBtn.style.display = 'block';
+            gBtn.style.display = 'none';
+            timingInfo.style.display = 'grid'; // Grievance user ko resolution time dikhega
+        }
+    }
+</script>
+
+</body>
+</html>

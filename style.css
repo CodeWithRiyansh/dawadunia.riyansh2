@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap');
+
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: 'Poppins', sans-serif; 
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f0f4f3;
+    padding: 20px;
+}
+
+.feedback-card {
+    background: #ffffff;
+    padding: 35px 25px;
+    border-radius: 28px;
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.06);
+    position: relative;
+    border-top: 6px solid #00a8ba;
+}
+
+.logo-container { margin-bottom: 15px; }
+.main-logo { width: 110px; height: auto; border-radius: 50%; }
+
+h2 { font-weight: 600; color: #2c3e50; font-size: 21px; margin-bottom: 5px; }
+p.sub-text { color: #95a5a6; font-size: 13px; margin-bottom: 25px; }
+
+/* Star Rating */
+.star-rating {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 25px;
+    flex-direction: row-reverse;
+}
+.star-rating input { display: none; }
+.star-rating label {
+    font-size: 42px;
+    color: #ecf0f1;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+.star-rating label:hover,
+.star-rating label:hover ~ label,
+.star-rating input:checked ~ label { 
+    color: #00a8ba; 
+    transform: scale(1.1); 
+}
+
+/* Dynamic Message Styles */
+.msg-box {
+    margin-bottom: 20px;
+    min-height: 50px;
+    font-size: 14px;
+    padding: 0 5px;
+}
+
+.appreciation-text { color: #2c3e50; font-weight: 500; }
+.grievance-text { color: #d35400; font-weight: 500; }
+.msg-box span { color: #7f8c8d; font-size: 12px; display: block; margin-top: 5px; font-weight: 400; line-height: 1.4; }
+
+/* Buttons */
+.btn-wrapper { min-height: 55px; margin-bottom: 25px; }
+.btn {
+    display: none;
+    padding: 15px;
+    border-radius: 14px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    width: 100%;
+    transition: 0.3s;
+    animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn { 
+    from { opacity: 0; transform: translateY(10px); } 
+    to { opacity: 1; transform: translateY(0); } 
+}
+
+.btn-google { background: #00a8ba; color: white; }
+.btn-whatsapp { background: #25D366; color: white; }
+
+/* Info Grid */
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    background: #f9fbfb;
+    padding: 15px;
+    border-radius: 18px;
+    border: 1px solid #edf2f2;
+    margin-top: 10px;
+    animation: fadeIn 0.4s ease;
+}
+
+.info-item { text-align: left; }
+.info-item b {
+    display: block;
+    font-size: 10px;
+    color: #00a8ba;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+}
+.info-item span { font-size: 11px; font-weight: 500; color: #34495e; display: block; }
+
+.resolution-bar {
+    grid-column: span 2;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px dashed #d1d8d8;
+    font-size: 11px;
+    color: #7f8c8d;
+    text-align: center;
+}
+
+.tnc { font-size: 9px; color: #bdc3c7; margin-top: 12px; display: block; }
